@@ -10,6 +10,8 @@ pipeline {
             steps {
                 withDockerRegistry(credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/') {
                     echo 'Hello world'
+                    sh 'docker build -t duyhien/node:v1.0 .'
+                    sh 'docker push duyhien/node:v1.0'
                 }
             }
         }
